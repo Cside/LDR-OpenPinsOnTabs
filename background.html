@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+chrome.extension.onRequest.addListener(function(urls, sender) {
+    var index = sender.tab.index + 1;
+    urls.forEach(function(url){
+        console.log(index);
+        chrome.tabs.create({
+            index: index++,
+            url  : url,
+        });
+    });
+});
+</script>
+</head>
+<body></body>
+</html>
+
